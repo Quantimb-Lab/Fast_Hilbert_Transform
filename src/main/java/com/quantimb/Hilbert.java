@@ -1,14 +1,41 @@
+  /**
+  * Copyright 2021 Quantimb Lab
+  *
+  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.
+  * 
+  * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+  *
+  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  *
+  * See the License for the specific language governing permissions and limitations under the License.
+  *
+  */
+  
 package com.quantimb;
 
 import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D;
 
+  /**
+   * <h1>Hilbert Tansform (FFT Implementation)</h1>
+   * 
+   * <p>
+   * The Hilbert Class is developed to compute the hilbert transform of an input signal using a Fast Fourier Transform.
+   * The Amplitude Envelope can then be found using the analytical signal created by the Hilbert Transform of the input signal.
+   * </p>
+   *
+   * @author  Yaniv Khaslavsky, Reza Yaghoubi
+   * @version 1.0
+   */
+   
 public final class Hilbert {
 
   private Hilbert() {}
 
   /**
+   * 
    * <p>
-   * Computes the hilbert transform of an input analytic signal using a Fast Fourier Transform.
+   * Computes the hilbert transform of an input signal using a Fast Fourier Transform.
+   * It produces an analytical signal from which the amplitude envelope can then be found.
    * </p>
    *
    * <p>
@@ -19,9 +46,9 @@ public final class Hilbert {
    * a[2*k] = Re[k],
    * a[2*k+1] = Im[k], 0<=k<n
    * </pre>
+   * @param double[] signal
+   * @return double[] the hilbert transform, with data structured as specified above.
    *
-   * @param signal
-   * @return the hilbert transform, with data structured as specified above.
    */
   public static double[] computeHilbertTransform(double[] signal) {
     if (signal == null) {
@@ -65,7 +92,7 @@ public final class Hilbert {
    * </p>
    *
    * @param fourierSignal
-   * @return
+   * @return double[] hVector
    */
   private static double[] createHVector(double[] fourierSignal) {
     final double[] hVector = new double[fourierSignal.length];
@@ -90,7 +117,7 @@ public final class Hilbert {
   /**
    * Assumes arr is an array of complex numbers [(a+bi), (c+di), ...] structured as [a,b,c,d,...]
    *
-   * @param arr
+   * @param double[] arr 
    * @param index
    * @param val
    */
@@ -99,6 +126,14 @@ public final class Hilbert {
     arr[2 * index + 1] = val;
   }
 
+
+  /**
+   * This method computes the Amplitude Envelope of the input signal for which the Hilbert Transform is already computed
+   *
+   * @param double[] hilbertTransform (the hilbert Transform of the input signal)/the analytical signal
+   * @return double[] Amplitude Envelope
+   * 
+   */
   public static double[] computeSignalEnvelope(double[] hilbertTransform) {
     final double[] envelope = new double[hilbertTransform.length / 2];
     for (int i = 0; i < envelope.length; i++) {
