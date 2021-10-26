@@ -9,6 +9,7 @@
   <rule ref="category/java/codestyle.xml">
     <exclude name="ShortClassName" />
     <exclude name="AtLeastOneConstructor" />
+	<exclude name="ClassNamingConventions" />
     <exclude name="MethodArgumentCouldBeFinal" />
     <exclude name="LongVariable" />
   </rule>
@@ -17,12 +18,16 @@
     <exclude name="GuardLogStatement" />
     <exclude name="UseVarargs" />
   </rule>
-  <rule ref="category/java/design.xml" />
+  <rule ref="category/java/design.xml" >
+    <exclude name="AvoidThrowingNullPointerException" />
+  </rule>
   <rule ref="category/java/errorprone.xml" >
     <exclude name="BeanMembersShouldSerialize" />
   </rule>
   <rule ref="category/java/multithreading.xml" />
-  <rule ref="category/java/performance.xml" />
+  <rule ref="category/java/performance.xml" >
+    <exclude name="AvoidArrayLoops" />
+  </rule>
   <exclude-pattern>.*/com/qus/framework/.*</exclude-pattern> 
 </ruleset>
 

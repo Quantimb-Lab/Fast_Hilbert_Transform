@@ -44,10 +44,10 @@ public final class Hilbert {
    *
    * <pre>
    * a[2*k] = Re[k],
-   * a[2*k+1] = Im[k], 0<=k<n
+   * a[2*k+1] = Im[k], 0&lt;=k&lt;n
    * </pre>
-   * @param double[] signal
-   * @return double[] the hilbert transform, with data structured as specified above.
+   * @param signal
+   * @return the hilbert transform, with data structured as specified above.
    *
    */
   public static double[] computeHilbertTransform(double[] signal) {
@@ -92,7 +92,7 @@ public final class Hilbert {
    * </p>
    *
    * @param fourierSignal
-   * @return double[] hVector
+   * @return hVector
    */
   private static double[] createHVector(double[] fourierSignal) {
     final double[] hVector = new double[fourierSignal.length];
@@ -117,7 +117,7 @@ public final class Hilbert {
   /**
    * Assumes arr is an array of complex numbers [(a+bi), (c+di), ...] structured as [a,b,c,d,...]
    *
-   * @param double[] arr 
+   * @param arr 
    * @param index
    * @param val
    */
@@ -130,8 +130,8 @@ public final class Hilbert {
   /**
    * This method computes the Amplitude Envelope of the input signal for which the Hilbert Transform is already computed
    *
-   * @param double[] hilbertTransform (the hilbert Transform of the input signal)/the analytical signal
-   * @return double[] Amplitude Envelope
+   * @param hilbertTransform (the hilbert Transform of the input signal)/the analytical signal
+   * @return Amplitude Envelope
    * 
    */
   public static double[] computeSignalEnvelope(double[] hilbertTransform) {
