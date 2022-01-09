@@ -11,7 +11,7 @@
   *
   */
   
-package ca.yorku.lab.quantimb;
+package io.quantimb_lab.quantimb;
 
 import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D;
 

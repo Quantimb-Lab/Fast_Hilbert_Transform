@@ -21,7 +21,7 @@ In your pom file, add the following plugin:
 
 ```
 <plugin>
-    <groupId>ca.yorku.lab.quantimb</groupId>
+    <groupId>io.quantimb_lab.quantimb</groupId>
     <artifactId>hilbert_transform</artifactId>
     <version>1.0-SNAPSHOT</version>
 </plugin>
