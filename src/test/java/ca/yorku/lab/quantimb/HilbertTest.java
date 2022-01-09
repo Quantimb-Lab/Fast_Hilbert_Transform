@@ -11,7 +11,7 @@
   *
   */
 
-package io.quantimb_lab.quantimb;
+package ca.yorku.lab.quantimb;
 
 import org.junit.Assert;
 import org.junit.Test;
